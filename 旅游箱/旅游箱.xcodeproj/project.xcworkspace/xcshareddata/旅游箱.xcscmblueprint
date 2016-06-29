@@ -1,27 +1,30 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BB6E1C15644B557AE8897F107E91C5792924479E+++E76D756",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "BB6E1C15644B557AE8897F107E91C5792924479E" : 0
+    "BB6E1C15644B557AE8897F107E91C5792924479E+++FB69D59" : 0,
+    "BB6E1C15644B557AE8897F107E91C5792924479E+++E76D756" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1A1516CE-E955-4332-BB28-F041FE8C4C38",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "BB6E1C15644B557AE8897F107E91C5792924479E" : ""
+    "BB6E1C15644B557AE8897F107E91C5792924479E+++FB69D59" : "",
+    "BB6E1C15644B557AE8897F107E91C5792924479E+++E76D756" : "TourApp\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "旅游箱",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "旅游箱.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "旅游箱\/旅游箱.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lyimin\/TourApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:lyimin\/TourApp.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BB6E1C15644B557AE8897F107E91C5792924479E"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BB6E1C15644B557AE8897F107E91C5792924479E+++E76D756"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lyimin\/TourApp.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BB6E1C15644B557AE8897F107E91C5792924479E"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BB6E1C15644B557AE8897F107E91C5792924479E+++FB69D59"
     }
   ]
 }

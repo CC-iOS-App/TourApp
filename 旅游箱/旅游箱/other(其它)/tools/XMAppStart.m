@@ -142,6 +142,7 @@
     //创建或打开数据库
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dataBaseFile];
     //异步添加数据
+    NSLog(@"线程: - %@",[NSThread currentThread]);
     dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         //创建表
@@ -154,6 +155,7 @@
         [db executeUpdate:createAccountsSql];
         [db executeUpdate:createTravelassistantSql];
         dispatch_async(q, ^{
+            NSLog(@"线程: - %@",[NSThread currentThread]);
             //添加数据
             for (int i = 0; i < self.cityArray.count; i++) {
                 //获取城市组模型
@@ -164,6 +166,7 @@
                     [db executeUpdate:insertBase,city.name,leaves.cityName,leaves.countryName,leaves.isHot,leaves.timezoneOffset,leaves.cityNameEn];
                 }
             }
+            NSLog(@"线程: - %@",[NSThread currentThread]);
             NSLog(@"----language--%ld",self.languageArray.count);
             for (int i = 0; i < self.languageArray.count; i++) {
                 XMLanguageModel *model = self.languageArray[i];
@@ -175,6 +178,7 @@
                 NSLog(@"----rate---=%@",model.rate);
                 [db executeUpdate:insertExrateSql,model.symbol,model.rate,model.coin,model.code];
             }
+            
             NSLog(@"---添加两条假数据到行程助手表");
             [db executeUpdate:insertTravelassistantSql,@"广州",@"2015/02/22",@"¥ 0",@"0",@"0",@"暂未填写",@"0",@"startPoint"];
             [db executeUpdate:insertTravelassistantSql,@"北京",@"2015/03/22",@"¥ 0",@"0",@"0",@"暂未填写",@"0",@"endPoint"];

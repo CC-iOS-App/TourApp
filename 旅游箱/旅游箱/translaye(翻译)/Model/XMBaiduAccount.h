@@ -10,9 +10,15 @@
 
 @interface XMBaiduAccount : NSObject
 /** 开发者id*/
-@property (nonatomic,copy) NSString * client_id;
+@property (nonatomic,copy) NSString * app_id;
 /** url*/
 @property (nonatomic,copy) NSString * url;
+/** 随机数*/
+@property (nonatomic, copy) NSString *salt;
+/** sign*/
+@property (nonatomic,copy) NSString * sign;
+/** 密钥*/
+@property (nonatomic,copy) NSString * key;
 /** fromCode*/
 @property (nonatomic,copy) NSString * fromCode;
 /** toCode*/

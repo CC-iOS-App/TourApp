@@ -135,36 +135,35 @@
     self.footView.sendButton.enabled = NO;
     
     [MBProgressHUD showMessage:@"正在翻译,请稍等..."];
-    dispatch_queue_t q = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(q, ^{
-        //获取翻译信息
-        NSString *fromCode = [self.db selectCodeWithLanguage:self.headerView.leftButton.titleLabel.text];
-        NSString *toCode = [self.db selectCodeWithLanguage:self.headerView.rightButton.titleLabel.text];
-        XMBaiduAccount *account = [XMBaiduAccount accountWithContent:content fromLanguageCode:fromCode toLanguageCode:toCode];
+
+    //获取翻译信息
+    NSString *fromCode = [self.db selectCodeWithLanguage:self.headerView.leftButton.titleLabel.text];
+    NSString *toCode = [self.db selectCodeWithLanguage:self.headerView.rightButton.titleLabel.text];
+    XMBaiduAccount *account = [XMBaiduAccount accountWithContent:content fromLanguageCode:fromCode toLanguageCode:toCode];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:account.url parameters:[account accountDict] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //保存翻译信息到数据库
+        XMTranslateModel *model = [XMTranslateModel modelWithDict:responseObject];
+        [self.db insertDataToTranslate:model];
+        //添加新的翻译信息到数组
+        XMTranslateViewCellFrame *newFrame = [[XMTranslateViewCellFrame alloc] init];
+        newFrame.model = model;
+        [self.translateArray addObject:newFrame];
+        //更新ui
         
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        [manager GET:account.url parameters:[account accountDict] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //保存翻译信息到数据库
-            XMTranslateModel *model = [XMTranslateModel modelWithDict:responseObject];
-            [self.db insertDataToTranslate:model];
-            //添加新的翻译信息到数组
-            XMTranslateViewCellFrame *newFrame = [[XMTranslateViewCellFrame alloc] init];
-            newFrame.model = model;
-            [self.translateArray addObject:newFrame];
-            //更新ui
-            dispatch_async(dispatch_get_main_queue(), ^{
-                // 刷新表格
-                NSIndexPath *path = [NSIndexPath indexPathForRow:self.translateArray.count - 1 inSection:0];
-                [self.centerView reloadData];
-                // 滚动到最底部
-                [self.centerView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-                [MBProgressHUD hideHUD];
-            });
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [MBProgressHUD hideHUD];
-            [XMSetTravelTool showToast:@"亲,你的网络不行哟" view:self.view];
-        }];
-    });
+        // 刷新表格
+        NSIndexPath *path = [NSIndexPath indexPathForRow:self.translateArray.count - 1 inSection:0];
+        [self.centerView reloadData];
+        // 滚动到最底部
+        [self.centerView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [MBProgressHUD hideHUD];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideHUD];
+        [XMSetTravelTool showToast:@"亲,你的网络不行哟" view:self.view];
+    }];
+
 }
 
 /**

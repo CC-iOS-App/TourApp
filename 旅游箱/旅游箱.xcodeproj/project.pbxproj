@@ -173,6 +173,7 @@
 		F186EDE51ACDA4F700F223BA /* XMTravelassistantTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = F186EDE41ACDA4F700F223BA /* XMTravelassistantTitleView.m */; };
 		F186EDE81ACDA78100F223BA /* XMTravelassistantCityView.m in Sources */ = {isa = PBXBuildFile; fileRef = F186EDE71ACDA78100F223BA /* XMTravelassistantCityView.m */; };
 		F1AB3CBA1AD146010019F8A0 /* XMTravelassistantDb.m in Sources */ = {isa = PBXBuildFile; fileRef = F1AB3CB91AD146010019F8A0 /* XMTravelassistantDb.m */; };
+		F1CB83E11CD49286004179DF /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CB83E01CD49286004179DF /* NSString+Hash.m */; };
 		F1CEB9BD1AD2F2060075A950 /* XMTravelassistantSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CEB9BC1AD2F2060075A950 /* XMTravelassistantSetView.m */; };
 		F1DAD2821ACB00F800E886CF /* XMMonthConsultFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DAD2811ACB00F800E886CF /* XMMonthConsultFooterView.m */; };
 		F1DAD2851ACB04D600E886CF /* XMAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DAD2841ACB04D600E886CF /* XMAccountTool.m */; };
@@ -510,6 +511,8 @@
 		F186EDE71ACDA78100F223BA /* XMTravelassistantCityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMTravelassistantCityView.m; sourceTree = "<group>"; };
 		F1AB3CB81AD146010019F8A0 /* XMTravelassistantDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMTravelassistantDb.h; sourceTree = "<group>"; };
 		F1AB3CB91AD146010019F8A0 /* XMTravelassistantDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMTravelassistantDb.m; sourceTree = "<group>"; };
+		F1CB83DF1CD49286004179DF /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		F1CB83E01CD49286004179DF /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		F1CEB9BB1AD2F2060075A950 /* XMTravelassistantSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMTravelassistantSetView.h; sourceTree = "<group>"; };
 		F1CEB9BC1AD2F2060075A950 /* XMTravelassistantSetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMTravelassistantSetView.m; sourceTree = "<group>"; };
 		F1DAD2801ACB00F800E886CF /* XMMonthConsultFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMonthConsultFooterView.h; sourceTree = "<group>"; };
@@ -1174,6 +1177,8 @@
 		F11794251AC6A7DB00332C78 /* other */ = {
 			isa = PBXGroup;
 			children = (
+				F1CB83DF1CD49286004179DF /* NSString+Hash.h */,
+				F1CB83E01CD49286004179DF /* NSString+Hash.m */,
 				F11794261AC6A7DB00332C78 /* XMTranslateDb.h */,
 				F11794271AC6A7DB00332C78 /* XMTranslateDb.m */,
 			);
@@ -1536,7 +1541,6 @@
 				TargetAttributes = {
 					F11791971AC6A74900332C78 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = 5N8LXT5RPD;
 					};
 					F11791B01AC6A74900332C78 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -1656,6 +1660,7 @@
 				F1E914951AC7CAAF0052C32D /* XMAccountTableViewCell.m in Sources */,
 				F11794851AC6A7DB00332C78 /* FMDatabaseQueue.m in Sources */,
 				F117944D1AC6A7DB00332C78 /* XMAccountRootController.m in Sources */,
+				F1CB83E11CD49286004179DF /* NSString+Hash.m in Sources */,
 				F11794731AC6A7DB00332C78 /* AFHTTPSessionManager.m in Sources */,
 				F166DC931ACBE65A00E06761 /* XMTravelassistantRootController.m in Sources */,
 				F11794781AC6A7DB00332C78 /* AFURLResponseSerialization.m in Sources */,
@@ -1860,6 +1865,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1872,7 +1878,7 @@
 					"$(PROJECT_DIR)/旅游箱/other(其它)/lib(第三方框架)/ShareSDK/UI",
 				);
 				INFOPLIST_FILE = "旅游箱/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1882,7 +1888,10 @@
 					"$(PROJECT_DIR)/旅游箱/other(其它)/lib(第三方框架)/ShareSDK/Extend/SinaWeiboSDK",
 				);
 				OTHER_LDFLAGS = "\"-ObjC\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.TourApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1891,6 +1900,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1903,7 +1913,7 @@
 					"$(PROJECT_DIR)/旅游箱/other(其它)/lib(第三方框架)/ShareSDK/UI",
 				);
 				INFOPLIST_FILE = "旅游箱/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1913,7 +1923,10 @@
 					"$(PROJECT_DIR)/旅游箱/other(其它)/lib(第三方框架)/ShareSDK/Extend/SinaWeiboSDK",
 				);
 				OTHER_LDFLAGS = "\"-ObjC\"";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoming.TourApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

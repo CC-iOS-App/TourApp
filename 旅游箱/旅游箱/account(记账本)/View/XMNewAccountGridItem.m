@@ -49,11 +49,11 @@
 -(void)imgButtonClick:(UIButton *)selectButton
 {
     
-    [UIView animateWithDuration:0.1 animations:^{
-        selectButton.transform = CGAffineTransformMakeScale(1.2, 1.2);
-    }completion:^(BOOL finished) {
-        selectButton.transform = CGAffineTransformIdentity;
-    }];
+//    [UIView animateWithDuration:0.1 animations:^{
+//        selectButton.transform = CGAffineTransformMakeScale(1.2, 1.2);
+//    }completion:^(BOOL finished) {
+//        selectButton.transform = CGAffineTransformIdentity;
+//    }];
     
     if ([self.delegate respondsToSelector:@selector(gridItemButtonClick:)]) {
         [self.delegate gridItemButtonClick:self];
